@@ -1,0 +1,40 @@
+---
+title: "Text Mining Using R"
+author: "Rahul Bajaj"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r warning=FALSE ,message=FALSE}
+# Load qdap
+library(qdap)
+library(ggplot2)
+```
+
+Topic : Game of Thrones (plot summary) as extracted from IMDB (http://www.imdb.com/title/tt0944947/plotsummary?ref_=tt_ql_stry_2)
+
+```{r}
+# Load Text
+GoT_plot_summary = "n the mythical continent of Westeros, several powerful families fight for control of the Seven Kingdoms. As conflict erupts in the kingdoms of men, an ancient enemy rises once again to threaten them all. Meanwhile, the last heirs of a recently usurped dynasty plot to take back their homeland from across the Narrow Sea.
+Nine years after a rebellion spurred by a stolen bride to be and the blind ambitions of a mad king, Robert of the house Baratheon sits on the much desired Iron Throne. In the mythical land of Westeros, nine noble families fight for every inch of control and every drop of power. The King's Hand, Jon Arryn, is dead. And Robert seeks out his only other ally in all of Westeros, his childhood friend Eddard Stark. The solemn and honorable Warden of the North is tasked to depart his frozen sanctuary and join the King in the capital of King's Landing to help the now overweight and drunk Robert rule. However, a letter in the dead of night informs Ned that the former Hand was murdered, and that Robert will be next. So noble Ned goes against his better desires in an attempt to save his friend and the kingdoms. But political intrigue, plots, murders, and sexual desires lead to a secret that could tear the Seven Kingdoms apart. And soon Eddard will find out what happens when you play the Game of Thrones.
+Nine noble families fight for control of the mythical land of Westeros. Political and sexual intrigue is pervasive. Robert Baratheon, King of Westeros, asks his old friend Eddard, Lord Stark, to serve as Hand of the King, or highest official. Secretly warned that the previous Hand was assassinated, Eddard accepts in order of business to investigate further. Meanwhile the Queen's family, the Lannisters, may be hatching a plot to take power. Across the sea, the last members of the previous and deposed ruling family, the Targaryens, are also scheming to regain the throne. The friction between the houses Stark, Lannister, Baratheon and Targaryen and with the remaining great houses Greyjoy, Tully, Arryn, Tyrell and Martell leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war and political confusion, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.
+Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years. ."
+```
+
+
+```{r}
+# Find the 10 most frequent terms: term_count
+term_count <- freq_terms(GoT_plot_summary, 10)
+# View term_count
+head(term_count,10)
+```
+
+
+```{r cars}
+# Plot term_count
+plot(factor(term_count$WORD),term_count$FREQ)
+```
+
