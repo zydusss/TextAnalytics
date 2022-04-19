@@ -1,3 +1,16 @@
+# NLP
+
+- Processing natual languages by computers
+- Challenges - Ambiguous, ever changing
+
+## NLP Tasks
+
+- Sentence Classification - sentiment analysisi
+- Classifying each word in a sentence - Named Enity Recognition
+- Text Generation ~ Auto generating text 
+- Translate or Summarize Text
+- Answering questions - Chatbot's
+
 ### Sentiment Analysis 
 
 #### Unsupervised Learning 
